@@ -1,0 +1,65 @@
+{
+    "template_name": "technical",
+    "name": "Maniram Kumar",
+    "institution_name": "Olive Mount Global School",
+    "standard": "7",
+    "about": "I am a passionate learner with a strong interest in web development, coding, and problem-solving. I am always eager to take on new challenges and improve my technical skills through hands-on experience and learning. My enthusiasm for technology drives me to build useful applications that can make life easier. I aspire to pursue a career in software development, where I can create innovative solutions and contribute to meaningful projects.",
+    "contact_details": {
+        "email": "maniram.kumar@example.com",
+        "phone": "8919547891",
+        "address": "123 Tech Lane, Silicon City, India",
+        "linkedin": "https://www.linkedin.com/in/maniramkumar"
+    },
+    "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python",
+        "React",
+        "Node.js",
+        "Git",
+        "Problem Solving",
+        "UI/UX Design",
+        "Responsive Web Design"
+    ],
+    "certifications": [
+        {
+            "certificate_name": "HTML5",
+            "certificate_description": "Completed the HTML5 certification from Simplilearn, gaining a deep understanding of HTML, web structures, and best practices in building accessible and semantic websites. This course enhanced my ability to create robust, cross-browser compatible web pages."
+        },
+        {
+            "certificate_name": "CSS",
+            "certificate_description": "Completed the CSS certification from Simplilearn, learning about styling, layout techniques, and how to use CSS to create visually appealing and responsive web pages. The course focused on media queries, Flexbox, and CSS Grid to design adaptive layouts."
+        },
+        {
+            "certificate_name": "JavaScript Fundamentals",
+            "certificate_description": "Completed a JavaScript fundamentals course that covered core programming concepts, such as variables, functions, loops, and arrays. This certification has helped me develop the foundation to build interactive web applications and understand programming logic."
+        },
+        {
+            "certificate_name": "Python for Beginners",
+            "certificate_description": "Successfully completed a Python for Beginners course, learning the basics of Python programming, including data types, control structures, functions, and libraries. I gained the skills necessary to work on beginner-level Python projects and automation tasks."
+        }
+    ],
+    "projects": [
+        {
+            "project_name": "Personal Portfolio",
+            "project_description": "This project is a personal portfolio website built using HTML, CSS, and JavaScript. It showcases my skills, projects, and contact information. The site is designed to be mobile-responsive, ensuring accessibility across devices. I also incorporated JavaScript to add interactivity, such as a smooth scrolling feature and dynamic project highlights."
+        },
+        {
+            "project_name": "To Do List",
+            "project_description": "A simple To Do list application that allows users to add, edit, and delete tasks. Built using HTML, CSS, and JavaScript, this project highlights my ability to use JavaScript for managing user inputs and storing data locally in the browser. I also implemented basic data validation to improve user experience."
+        },
+        {
+            "project_name": "Weather App",
+            "project_description": "A weather application that provides users with current weather data using an external API. Built using HTML, CSS, and JavaScript, this project demonstrated my ability to fetch real-time data from an API and display it in a user-friendly interface. The app provides accurate weather information based on the user’s location, and I also included features like temperature conversion and weather icons for a visually engaging experience."
+        },
+        {
+            "project_name": "Online Quiz",
+            "project_description": "An online quiz application that allows users to test their knowledge on various topics. Built with HTML, CSS, and JavaScript, the quiz presents multiple-choice questions, tracks the user’s score, and gives immediate feedback after each answer. This project helped me enhance my skills in DOM manipulation and event handling."
+        },
+        {
+            "project_name": "Personal Budget Tracker",
+            "project_description": "A personal budget tracker application designed to help users manage their expenses. Built with HTML, CSS, and JavaScript, this tool allows users to input and categorize expenses, calculate total expenditure, and view summaries of their financial activities. I used local storage to persist the data and provided a user-friendly interface to ensure ease of use."
+        }
+    ]
+}

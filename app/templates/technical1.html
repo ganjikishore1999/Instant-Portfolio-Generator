@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Maniram</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #3498db;
+            color: #fff;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-item {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        /* Certifications & Projects */
+        .cert-item, .proj-item {
+            margin-bottom: 15px;
+        }
+        .cert-item h3, .proj-item h3 {
+            margin: 0;
+        }
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .skills-list {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Maniram</h1>
+        <p>Student at Olive Mount Global School, Grade 7</p>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <div class="section">
+            <h2>About Me</h2>
+            <p>something about maniram</p>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="section">
+            <h2>Contact Details</h2>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:mani@gmail.com">mani@gmail.com</a></p>
+                <p>Phone: <a href="tel:8919547891">8919547891</a></p>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill-item">HTML</div>
+                <div class="skill-item">CSS</div>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="section">
+            <h2>Certifications</h2>
+            <div class="cert-item">
+                <h3>HTML5</h3>
+                <p>Completed HTML5 certification from Simplilearn</p>
+            </div>
+            <div class="cert-item">
+                <h3>CSS</h3>
+                <p>Completed CSS certification from Simplilearn platform</p>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="proj-item">
+                <h3>Personal Portfolio</h3>
+                <p>This project is just to showcase my personal portfolio to others.</p>
+            </div>
+            <div class="proj-item">
+                <h3>TO Do list</h3>
+                <p>This will maintain the user's To Do list which will be useful to have a track of their tasks.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

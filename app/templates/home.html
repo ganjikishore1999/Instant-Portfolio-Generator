@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #007bff;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Main Area Styles */
+        .main-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .content-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            object-fit: cover;  /* Ensures the image fits well inside the container */
+            max-height: 400px;  /* Controls the height for better visual appearance */
+        }
+
+        .content-container .content {
+            max-width: 50%;
+            padding-left: 20px;
+        }
+
+        .content-container .content h2 {
+            font-size: 2rem;
+            color: #007bff;
+        }
+
+        .content-container .content p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 767px) {
+            .content-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-container img {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .content-container .content {
+                max-width: 100%;
+                padding-left: 0;
+            }
+        }
+    </style>
+
+    <!-- Main Heading -->
+    <h1 class="main-heading">
+        Welcome 
+        {% if current_user.is_authenticated %} 
+            {{ current_user.username }}
+        {% endif %}
+            to instant  Portfolio generator        
+    </h1>
+
+    <!-- Main Content Area -->
+    <div class="content-container">
+        <!-- Image on the left -->
+        <img src="/static/images/sch.jpeg" alt="Student Portfolio Image" aria-label="Student Portfolio Image" role="img">
+        
+        <!-- Content on the right -->
+        <div class="content">
+            <h2>Your Journey Begins Here</h2>
+            <p>
+                This platform is designed for students to build and showcase their portfolios. Whether you are showcasing your academic projects, extracurricular activities, or personal achievements, your portfolio is the perfect way to present your skills and growth.
+                <br><br>
+                Start by adding your best projects, assignments, and accomplishments. Your portfolio is a reflection of who you are, what you’ve achieved, and what you’re passionate about.
+                <br><br>
+                <strong>Let’s get started!</strong> Personalize your portfolio and begin sharing your story with others.
+            </p>
+            <a href="{{ url_for('portfolio.generate_portfolio') }}" class="cta-button">Create Your Portfolio</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+{% endblock %}

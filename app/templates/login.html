@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <style>
+        /* Body Layout */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        footer {
+            margin-top: auto; /* Ensures footer is pushed to the bottom */
+        }
+
+        /* Form container */
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            min-height: 350px;
+            overflow-y: auto;
+            margin: auto;
+        }
+
+        .form-header {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-size: 1rem;
+            color: #f8f9fa;
+            margin-top: 10px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 5px;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(38, 99, 255, 0.25);
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive layout for smaller devices */
+        @media (max-width: 767px) {
+            .form-container {
+                padding: 10px 20px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .form-header {
+                font-size: 1.8rem;
+            }
+        }
+
+    </style>
+    <main>
+        <div class="form-container">
+            <form action="{{ url_for('auth.login', next=next)}}" method="POST">
+                <h1 class="form-header">Login</h1>
+
+                <!-- Username Field -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" id="username" name="username" required class="form-control" placeholder="Your username...">
+                </div>
+
+                <!-- Password Field -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" required minlength="8" class="form-control" placeholder="Enter your password">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mb-3">
+                    <button type="submit" class="submit-btn">Login</button>
+                </div>
+
+                <!-- Sign Up Link -->
+                <div class="text-center">
+                    <small class="text-light">Don't have an account? <a href="{{ url_for('auth.register_user') }}" class="text-decoration-none">Sign Up</a></small>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script>
+        const passwordInput = document.getElementById("password");
+
+        passwordInput.addEventListener("input", function () {
+            if (passwordInput.value.length < 8) {
+                passwordInput.setCustomValidity("Password must be at least 8 characters long.");
+            } else {
+                passwordInput.setCustomValidity("");
+            }
+        });
+    </script>
+{% endblock %}

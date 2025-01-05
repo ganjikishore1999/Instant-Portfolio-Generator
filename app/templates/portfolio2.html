@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block title %} Create Student Portfolio {% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="form-container bg-dark text-light rounded p-4" style="max-width: 800px; margin: auto;">
+        <form action="{{ url_for('portfolio.generate_portfolio') }}" method="POST">
+            <h2 class="text-center mb-4">Create Your Portfolio</h2>
+
+            <!-- Template Selector -->
+            <div class="mb-3">
+                <label for="template" class="form-label">Choose Portfolio Template:</label>
+                <select id="template" name="template" class="form-control" required>
+                    <option value="" disabled selected>Select Template</option>
+                    <option value="academic">Academic Achievements</option>
+                    <option value="technical">Technical Projects</option>
+                    <option value="artistic">Artistic Portfolio</option>
+                    <option value="extracurricular">Extracurricular Activities</option>
+                </select>
+            </div>
+
+            <!-- Personal Information -->
+            <div>
+                <h3 class="text-center mb-3">Personal Information</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="full-name" class="form-label">Full Name:</label>
+                        <input type="text" id="full-name" name="full-name" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="institution-name" class="form-label">Institution Name:</label>
+                        <input type="text" id="institution-name" name="institution-name" class="form-control" required placeholder="School / College Name...">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" class="form-control">
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <label for="about-me" class="form-label">About Me:</label>
+                    <textarea id="about-me" name="about-me" class="form-control" rows="4" placeholder="Write a brief introduction about yourself."></textarea>
+                </div>
+            </div>
+
+            <!-- Dynamic Template Sections -->
+            <div id="academic-fields" class="dynamic-section d-none">
+                <h3 class="text-center mb-3">Academic Achievements</h3>
+                <!-- Academic-related fields -->
+            </div>
+            <div id="technical-fields" class="dynamic-section d-none">
+                <h3 class="text-center mb-3">Technical Projects</h3>
+
+                <!-- Skills -->
+                <div id="skills-container" class="mb-3">
+                    <label class="form-label">Skills:</label>
+                    <div class="d-flex mb-2">
+                        <input type="text" name="skill_1" class="form-control" placeholder="Skill">
+                        <button type="button" id="add-skill" class="btn btn-success ms-2">+</button>
+                    </div>
+                </div>
+
+                <!-- Certificates -->
+                <div id="certificates-container" class="mb-3">
+                    <label class="form-label">Certificates:</label>
+                    <div class="d-flex mb-2">
+                        <input type="text" name="certificate_name_1" class="form-control me-2" placeholder="Certificate Name">
+                        <textarea name="certificate_desc_1" class="form-control" placeholder="Certificate Description"></textarea>
+                        <button type="button" id="add-certificate" class="btn btn-success ms-2">+</button>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div id="projects-container" class="mb-3">
+                    <label class="form-label">Projects:</label>
+                    <div class="d-flex mb-2">
+                        <input type="text" name="project_name_1" class="form-control me-2" placeholder="Project Name">
+                        <textarea name="project_desc_1" class="form-control" placeholder="Project Description"></textarea>
+                        <button type="button" id="add-project" class="btn btn-success ms-2">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary w-100">Submit Portfolio</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Show dynamic sections
+    document.getElementById('template').addEventListener('change', function () {
+        const selectedTemplate = this.value;
+        document.querySelectorAll('.dynamic-section').forEach(section => section.classList.add('d-none'));
+        if (selectedTemplate) {
+            const selectedSection = document.getElementById(`${selectedTemplate}-fields`);
+            if (selectedSection) {
+                selectedSection.classList.remove('d-none');
+            }
+        }
+    });
+
+    // Add skills dynamically
+    let skillCount = 1;
+    document.getElementById('add-skill').addEventListener('click', function () {
+        skillCount++;
+        const skillInput = `<div class="d-flex mb-2">
+            <input type="text" name="skill_${skillCount}" class="form-control" placeholder="Skill">
+        </div>`;
+        document.getElementById('skills-container').insertAdjacentHTML('beforeend', skillInput);
+    });
+
+    // Add certificates dynamically
+    let certificateCount = 1;
+    document.getElementById('add-certificate').addEventListener('click', function () {
+        certificateCount++;
+        const certificateInput = `<div class="d-flex mb-2">
+            <input type="text" name="certificate_name_${certificateCount}" class="form-control me-2" placeholder="Certificate Name">
+            <textarea name="certificate_desc_${certificateCount}" class="form-control" placeholder="Certificate Description"></textarea>
+        </div>`;
+        document.getElementById('certificates-container').insertAdjacentHTML('beforeend', certificateInput);
+    });
+
+    // Add projects dynamically
+    let projectCount = 1;
+    document.getElementById('add-project').addEventListener('click', function () {
+        projectCount++;
+        const projectInput = `<div class="d-flex mb-2">
+            <input type="text" name="project_name_${projectCount}" class="form-control me-2" placeholder="Project Name">
+            <textarea name="project_desc_${projectCount}" class="form-control" placeholder="Project Description"></textarea>
+        </div>`;
+        document.getElementById('projects-container').insertAdjacentHTML('beforeend', projectInput);
+    });
+</script>
+
+{% endblock %}

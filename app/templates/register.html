@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %} Sign Up {% endblock %}
+{% block content %}
+<style>
+    /* Form container */
+    .form-container {
+        background-color: rgba(0, 0, 0, 0.8); /* Dark, slightly transparent background */
+        border-radius: 10px;
+        padding: 20px 30px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        width: 100%;
+        max-width: 600px; /* Adjusted form width */
+        margin: 50px auto; /* Centered with top margin to avoid overlapping */
+    }
+
+    .form-header {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        font-size: 1rem;
+        color: #f8f9fa;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        padding: 5px;
+        font-size: 1rem;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(38, 99, 255, 0.25);
+    }
+
+    .submit-btn {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        width: 100%;
+        padding: 12px;
+        border: none;
+        transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .password-validation {
+        font-size: 0.875rem;
+        color: #f8f9fa;
+    }
+
+    .valid {
+        color: green;
+    }
+
+    .invalid {
+        color: red;
+    }
+</style>
+
+<div class="form-container">
+    <form action='/auth/register' method="POST">
+        <h1 class="form-header">Sign Up</h1>
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="full-name" class="form-label">Full Name:</label>
+                <input type="text" id="full-name" name="full-name" required class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" id="username" name="username" required class="form-control">
+            </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" name="password" required minlength="8" class="form-control">
+                <small id="password-validation" class="password-validation">Password must be at least 8 characters long, with one uppercase letter, one number, and one symbol.</small>
+            </div>
+            <div class="col-md-6">
+                <label for="confirm-password" class="form-label">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required class="form-control">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="submit-btn btn">Sign Up</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
