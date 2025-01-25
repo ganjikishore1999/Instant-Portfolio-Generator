@@ -1,0 +1,31 @@
+{
+    "template_name": "artistic",
+    "name": "Maniram Kumar",
+    "institution_name": "Springdale High School",
+    "standard": "10",
+    "about": "I am a passionate artist who loves to explore different mediums and techniques to create unique and inspiring artwork. My work is a reflection of my creativity and imagination.",
+    "profile_pic_url": "/static/images/mani.jpeg",
+    "contact_details": {
+        "email": "mani@gmail.com",
+        "phone": "123-456-7890",
+        "address": "123 Art Lane, Creativity City",
+        "website": "https://myartportfolio.example.com"
+    },
+    "artworks": [
+        {
+            "title": "Sunset Bliss",
+            "image_url": "/static/images/sch1.jpeg",
+            "description": "An acrylic painting capturing the beauty of a sunset over the ocean."
+        },
+        {
+            "title": "Abstract Vibes",
+            "image_url": "/static/images/sch1.jpeg",
+            "description": "A vibrant abstract piece that explores color and movement."
+        },
+        {
+            "title": "Portrait of Serenity",
+            "image_url": "/static/images/sch1.jpeg",
+            "description": "A pencil sketch portraying calmness and inner peace."
+        }
+    ]
+}

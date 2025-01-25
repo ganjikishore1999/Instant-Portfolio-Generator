@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container mt-5">
     <div class="form-container bg-dark text-light rounded p-4" style="max-width: 800px; margin: auto;">
-        <form action="{{ url_for('portfolio.generate_portfolio') }}" method="POST">
+        <form action="{{ url_for('portfolio.generate_portfolio') }}" method="POST" enctype="multipart/form-data">
             <h2 class="text-center mb-4">Create Your Portfolio</h2>
 
             <!-- Template Selector -->
@@ -14,10 +14,8 @@
                     <label for="template" class="form-label">Choose Portfolio Template:</label>
                     <select id="template" name="template" class="form-control" required>
                         <option value="" disabled selected>Select Template</option>
-                        <option value="academic">Academic Achievements</option>
                         <option value="technical">Technical Projects</option>
                         <option value="artistic">Artistic Portfolio</option>
-                        <option value="extracurricular">Extracurricular Activities</option>
                     </select>
                 </div>
                 <!-- Preview link -->
@@ -97,6 +95,24 @@
                     </div>
                 </div>
             </div>
+            <div id="artistic-fields" class="dynamic-section d-none">
+                <h3 class="text-center mb-3">ART Works</h3>
+                <!-- Art work gallery fields-->
+                <div id="art-container" class="mb-3">
+                    <div class="mt-3">
+                        <label for="profile-pic" class="form-label">Profile Photo:</label>
+                        <input type="file" id="profile-pic" name="profile-pic" class="form-control" placeholder="upload your profile photo">
+                    </div>
+                    <div class="d-flex mb-3 mt-3">
+                        <input type="text" name="art_name_1" class="form-control  me-3" placeholder="Art work name">
+                        <textarea name="art_desc_1" class="form-control  me-3" placeholder=" Art Work Description"></textarea>
+                        <input type="file" name="image_url_1" class="form-control">
+                        <button type="button" id="add-artwork" class="btn btn-success ms-2">+</button>
+                    </div>
+                </div>
+                
+            </div>
+
 
             <div class="text-center mt-4">
                 <button type="submit" class="btn btn-primary w-100">Submit Portfolio</button>
@@ -167,6 +183,19 @@
             <button type="button" class="btn btn-danger ms-2 remove-field">-</button>
         </div>`;
         document.getElementById('projects-container').insertAdjacentHTML('beforeend', projectInput);
+    });
+
+    //add art work fields dynamically
+    let artCount = 1;
+    document.getElementById('add-artwork').addEventListener('click', function () {
+        artCount++;
+        const artInput = `<div class="d-flex mb-3">
+            <input type="text" name="art_name_${artCount}" class="form-control me-3" placeholder="Art Work Name">
+            <textarea name="art_desc_${artCount}" class="form-control  me-3" placeholder=" Art Work Description"></textarea>
+            <input type="file" name="image_url_${artCount}" class="form-control">
+            <button type="button" class="btn btn-danger ms-2 remove-field">-</button>
+        </div>`;
+        document.getElementById('art-container').insertAdjacentHTML('beforeend', artInput);
     });
 
     // Remove dynamically added fields

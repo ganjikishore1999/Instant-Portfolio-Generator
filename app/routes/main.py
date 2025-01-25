@@ -5,3 +5,6 @@ main_bp = Blueprint('main', __name__, template_folder='templates')
 @main_bp.route('/', methods=['GET'])
 def home_page():
     return render_template('home.html')
+@main_bp.route('/test')
+def test():
+    return render_template('artistic.html')

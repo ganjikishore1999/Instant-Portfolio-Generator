@@ -81,17 +81,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('main.home_page') }}">Home</a>
-                    </li>
 
                     {% if current_user.is_authenticated %}
                     <!-- If the user is authenticated, show the logout and view portfolio link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                        <a class="nav-link" href="{{ url_for('portfolio.view_portfolio', user_name=current_user.username) }}">View Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('portfolio.view_portfolio', user_name=current_user.username) }}">view portfolio</a>
+                        <a class="nav-link" href="{{ url_for('portfolio.delete_portfolio', user_name=current_user.username) }}">Delete Portfolio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
                     </li>
 
                     {% else %}
@@ -131,8 +132,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Instant Portfolio generator. All rights reserved.</p>
-        <p>Created by a group of enthusiastic students from <b> Olive Mount Global  School, Attapur</b>. Our goal is to provide a platform for students to showcase their skills and portfolios.</p>
+        <p>&copy; 2025 Instant Portfolio generator. All rights reserved.</p>
+        <p>Created by a group of enthusiastic students (<b><i><spam> Maniram Charan, Darsh Agarwal, Kruthardh, Kavya, Chitritha</spam></i></b>) from <b> Olive Mount Global  School, Attapur</b>. Our goal is to provide a platform for students to showcase their skills and portfolios.</p>
         <p><a href="mailto:contact@studentportfolio.com">Contact Us</a></p>
     </footer>
 
